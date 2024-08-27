@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <title>City Dish Generator</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js" defer></script> <!-- 引入外部 JavaScript 文件 -->
+    <link href="https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap" rel="stylesheet">
+  <style>
+    html {
+  scroll-behavior: smooth;
+}
+    body {
+      font-family: 'Coda', sans-serif;
+    }
+
+    #resultContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        #imagePlaceholder {
+            width: 50%;
+            padding-right: 20px; /* 给图片和文字之间一些间距 */
+        }
+
+        #resultSection {
+            width: 50%;
+        }
+
+        img {
+            max-width: 100%; /* 确保图片不超出容器的宽度 */
+            height: auto; /* 保持图片比例 */
+        }
+
+ 
+  </style>
+</head>
+
+<body>
+   
+    <form id="surveyForm">
+        <div class="question question-0">
+            <div class="scrolling-container">
+                <div class="scrolling-text">WELCOME  WELCOME  WELCOME  WELCOME  WELCOME WELCOME  WELCOME  WELCOME</div>
+            </div>
+        </div>
+
+    <div style="width: 1200px; height: 800px; position: relative; margin-bottom: 250px;">
+        <div style="left: 128px; top: 203px; position: absolute; color: #232E5F; font-size: 64px; font-family: Coda; font-weight: 800; text-transform: uppercase; line-height: 83px; letter-spacing: 2px;">City Culinary <br/>Microwave Journey</div>
+        <div style="width: 974px; left: 339px; top: 82px; position: absolute; text-align: right; color: #7F8BB5; font-size: 32px;font-weight: 500; line-height: 35px; word-wrap: break-word">This is your travel Microwave oven. Set the parameters, choose your food ingredients, and embark on a travel experience.</div>
+        <div style="width: 524px; left: 138px; top: 430px; position: absolute; color: #7F8BB5; font-size: 24px;">Experience description</div>
+
+
+
+
+
+        <div style="left: 900px; top: 685px; position: absolute; color: #7F8BB5; ">Press the confirmation button on the right</div>
+        <div class="image-icon" style="left: 850px; top: 680px; position: absolute;">
+            <img src="UI/confirm-icon.png" alt="Confirm Icon" width="30" height="30">
+        </div>
+        
+        
+       
+        
+        <button class="confirmstart-button" type="button"  onclick="confirmSelection()">Start the journey</button>
+
+       
+        
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+        <dotlottie-player src="https://lottie.host/22d3876f-f46f-4f62-897a-2f124da66d86/nPAv5y4mZb.json" background="transparent" speed="0.7" style="width: 300px; height: 300px; position: absolute; left: 0px; top: 0px;"loop autoplay ></dotlottie-player>
+
+        <div style="width: 330px; height: 270px; left: 250px; top: 500px; position: absolute; color: #7F8BB5;  ">Input six essential details related to a city and select the ingredients to be baked. </div>
+        <div style="width: 330px; height: 270px; left: 250px; top: 608px; position: absolute; color: #7F8BB5;  ">AI will then present you with a dish savor it slowly and enjoy the journey!</div>
+        <div style="width: 330px; left: 250px; top: 715px; position: absolute; color: #7F8BB5; ">When you're done, go write your feedback.</div>
+
+
+
+        <div style="width: 50px; height: 50px; left: 128px; top: 500px; position: absolute; background: #F09AD4; border-radius: 50px; box-shadow: 4px 4px 0px #6AC0AA;"></div>
+        <div style="width: 50px; height: 50px; left: 128px; top: 600px; position: absolute; background: #BAE8D7; border-radius: 50px; box-shadow: 4px 4px 0px #ED9BCD;"></div>
+        <div style="width: 50px; height: 50px; left: 128px; top: 700px; position: absolute; background: #5995F2; border-radius: 50px; box-shadow: 4px 4px 0px #BAE8D7;;"></div>
+        
+
+      </div>
+
+
+
+      <div class="question question-1">
+        <h2 class="progress">1/7</h2>
+        <h2 class="q">What decade are you focusing on?</h2>
+        <h2 class="instruction-option">Press the left button or right button on the right to select an option.</h2>
+        
+        <div class="radio-container" tabindex="1">
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/1-1_1750s.png" alt="1750s" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-1" value="option0" required>
+                        <div class="label-text">1750s</div>
+                    </div>
+                </div>
+            </label>
+            <label >
+                <div class="yellow-box">
+                    <img src="UI/1-2 1950s.png" alt="1950s" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-1" value="option1" required>
+                        <div class="label-text">1950s</div>
+                    </div>
+                </div>
+            </label>
+            <label >
+                <div class="yellow-box">
+                    <img src="UI/1-3 2250s.png" alt="2250s" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-1" value="option2" required>
+                        <div class="label-text">2250s</div>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <button class="confirm-button" type="button" onclick="confirmSelection()">
+            <img src="UI/confirm-icon.png" alt="Confirm Icon" class="button-icon">
+            Confirm
+        </button>
+        
+    </div>
+    <h2 class="instruction-confirm">Press the confirmation button on the right.</h2>
+        
+   
+
+
+    
+    <div class="question question-2" id ='1'>
+        <h2 class="progress">2/7</h2>
+        <h2 class="q">What is the climate type in the region?</h2>
+        <h2 class="instruction-option">Press the left button or right button on the right to select an option.</h2>
+        <div class="radio-container" tabindex="2">
+            </label>
+                <div class="yellow-box">
+                    <img src="UI/2-1 Cold Region.png" alt="Cold Region" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-2" value="Cold Region" required>
+                        <div class="label-text">Cold Region</div>
+                    </div>
+                </div>
+            </label>
+            <label >
+                <div class="yellow-box">
+                    <img src="UI/2-2 Tropical.png" alt="Tropical" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-2" value="Tropical">
+                        <div class="label-text">Tropical</div>
+                    </div>
+                </div>
+            </label>
+            <label >
+                <div class="yellow-box">
+                    <img src="UI/2-3 Temperate.png" alt="Temperate" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-2" value="Temperate">
+                        <div class="label-text">Temperate</div>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <button class="confirm-button" type="button" onclick="confirmSelection()">
+            <img src="UI/confirm-icon.png" alt="Confirm Icon" class="button-icon">
+            Confirm
+        </button>
+    </div>
+    <h2 class="instruction-confirm">Press the confirmation button on the right.</h2>
+    
+
+    <div class="question question-3">
+        <h2 class="progress">3/7</h2>
+        <h2 class="q">What type of geographical environment surrounds the area?</h2>
+        <h2 class="instruction-option">Press the left button or right button on the right to select an option.</h2>
+        
+        <div class="radio-container" tabindex="4">
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/3-1 Mountainous.png" alt="Mountainous" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-3" value="Mountainous" required>
+                        <div class="label-text">Mountainous</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/3-2 Coastal.png" alt="Plains" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-3" value="Plains">
+                        <div class="label-text">Plains</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/3-3 Plains.png" alt="Coastal" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-3" value="Coastal">
+                        <div class="label-text">Coastal</div>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <button class="confirm-button" type="button" onclick="confirmSelection()">
+            <img src="UI/confirm-icon.png" alt="Confirm Icon" class="button-icon">
+            Confirm
+        </button>
+    </div>
+    <h2 class="instruction-confirm">Press the confirmation button on the right.</h2>
+   
+
+    <div class="question question-4">
+        <h2 class="progress">4/7</h2>
+        <h2 class="q">What are the main sectors of economic activity in the area?</h2>
+        <h2 class="instruction-option">Press the left button or right button on the right to select an option.</h2>
+        <div class="radio-container" tabindex="5">
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/4-1 Industry.png" alt="Industry" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-4" value="Industry" required>
+                        <div class="label-text">Industry</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/4-2 Tourism.png" alt="Tourism" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-4" value="Tourism">
+                        <div class="label-text">Tourism</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/4-3 Agriculture.png" alt="Agriculture" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-4" value="Agriculture">
+                        <div class="label-text">Agriculture</div>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <button class="confirm-button" type="button" onclick="confirmSelection()">
+            <img src="UI/confirm-icon.png" alt="Confirm Icon" class="button-icon">
+            Confirm
+        </button>
+    </div>
+    <h2 class="instruction-confirm">Press the confirmation button on the right.</h2>
+    
+    
+
+
+    
+    <div class="question question-5">
+        <h2 class="progress">5/7</h2>
+        <h2 class="q">What characterizes the local population?</h2>
+        <h2 class="instruction-option">Press the left button or right button on the right to select an option.</h2>
+        <div class="radio-container" tabindex="4">
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/5-1 Aging Population.png" alt="Aging Population" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-5" value="Aging Population" required>
+                        <div class="label-text">Aging Population</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/5-2 High Immigration.png" alt="High Immigration" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-5" value="High Immigration">
+                        <div class="label-text">High Immigration</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/5-3 Religious Prevalence.png" alt="Religious" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-5" value="Religious">
+                        <div class="label-text">Religious</div>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <button class="confirm-button" type="button" onclick="confirmSelection()">
+            <img src="UI/confirm-icon.png" alt="Confirm Icon" class="button-icon">
+            Confirm
+        </button>
+    </div>
+    <h2 class="instruction-confirm">Press the confirmation button on the right.</h2>
+    
+    <div class="question question-6">
+        <h2 class="progress">6/7</h2>
+        <h2 class="q">What is the prevalent dining style in the locality?</h2>
+        <h2 class="instruction-option">Press the left button or right button on the right to select an option.</h2>
+        <div class="radio-container" tabindex="5">
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/6-1 Formal Dining.png" alt="Formal Dining" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-6" value="Formal Dining" required>
+                        <div class="label-text">Formal Dining</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/6-2 Street Food.png" alt="Street Food" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-6" value="Street Food">
+                        <div class="label-text">Street Food</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/6-3 No Preference.png" alt="No Preference" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-6" value="No Preference">
+                        <div class="label-text">No Preference</div>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <button class="confirm-button" type="button" onclick="confirmSelection()">
+            <img src="UI/confirm-icon.png" alt="Confirm Icon" class="button-icon">
+            Confirm
+        </button>
+    </div>
+    <h2 class="instruction-confirm">Press the confirmation button on the right.</h2>
+   
+    <div class="question question-7">
+        <h2 class="progress">7/7</h2>
+        <h2 class="q">Please select 1 kind of food ingredients:</h2>
+        <h2 class="instruction-option">Press the left button or right button on the right to select an option.</h2>
+        <div class="radio-container" tabindex="6">
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/7-1 rice.png" alt="Rice" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-7" value="rice">
+                        <div class="label-text">Rice</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/7-2 wheat.png" alt="Wheat" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-7" value="wheat">
+                        <div class="label-text">Wheat</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/7-3 potato.png" alt="Potato" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-7" value="potato">
+                        <div class="label-text">Potato</div>
+                    </div>
+                </div>
+            </label>
+             <label>
+                <div class="yellow-box">
+                    <img src="UI/7-4 corn.png" alt="Corn" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-7" value="corn">
+                        <div class="label-text">Corn</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/7-5 egg.png" alt="Egg" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-7" value="egg">
+                        <div class="label-text">Egg</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/7-7 onion.png" alt="Onion" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-7" value="onion">
+                        <div class="label-text">Onion</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/7-8 tomato.png" alt="Tomato" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-7" value="tomato">
+                        <div class="label-text">Tomato</div>
+                    </div>
+                </div>
+            </label>
+            <label>
+                <div class="yellow-box">
+                    <img src="UI/7-9 meat.png" alt="Meat" class="rounded-img">
+                    <div class="white-box">
+                        <input type="radio" name="question-7" value="meat">
+                        <div class="label-text">Meat</div>
+                    </div>
+                </div>
+            </label>
+            
+        </div>
+        <button class="confirm-button" type="button" onclick="confirmSelection()">
+            <img src="UI/confirm-icon.png" alt="Confirm Icon" class="button-icon">
+            Confirm
+        </button>
+    </div>
+    <h2 class="instruction-confirm">Press the confirmation button on the right.</h2>
+   
+
+        
+
+    
+
+
+<br>
+
+
+        
+        <!-- 继续添加其他部分，类似上面部分 -->
+
+       
+    
+
+          
+
+       
+
+    </form>
+
+    <button class="center-button" onclick="submitSurvey()" tabindex="9">
+        <img src="UI/destination.png" alt="Journey Icon" class="Journey-icon">
+        GO TO YOUR DESTINATION
+      </button>
+      <div style="width: 300px; display: block; margin: 0 auto; text-align: center; margin-top: 20px;">
+        Press the Start Button Button on the Right
+      </div>
+      
+
+
+    <div class="content-wrapper">
+        <!-- Loading效果 -->
+        <div class="loader"></div>
+        
+        
+        <!-- 目标段落 -->
+        <p id="ai-section">AI is Guiding Your Path</p>
+    </div>
+  
+
+    <div id="resultContainer">
+        <div id="imagePlaceholder"></div>
+        <div id="resultSection"></div>
+    <div id="textBox"></div>
+
+   
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;">
+        <button class="styled-button" onclick="refreshPage()" tabindex="10">
+            Restart Journey
+        </button>
+        <div style="width: 400px; text-align: center;">
+            Press the Refresh Button on the Right
+        </div>
+    </div>
+    
+
+      
+   
+      
+    
+
+
+
+   
+    
+</body>
+</html>

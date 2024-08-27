@@ -1,0 +1,394 @@
+
+
+/* 全局样式：设置 box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+body {
+    background-color: #f6f3e9; /* 你想要的背景颜色 */
+    height: 100%; /* 确保背景颜色覆盖整个页面高度 */
+    margin-left: 0px;
+      margin-right: 0px;
+}
+
+.progress {
+    font-weight: normal;
+    font-size: 15px;
+    margin-top: 300px;
+    margin-left: 200px;
+    
+}
+
+.q {
+    position: relative;
+    font-size: 25px;
+    word-wrap: break-word; /* 当单词太长时自动换行 */
+    overflow-wrap: break-word; /* 兼容旧版本的浏览器 */
+    margin-top: 5px;
+    margin-left: 200px;
+    
+}
+
+.q::before {
+    content: ''; /* 伪元素的内容为空 */
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+    width: 30px; /* 圆形的直径 */
+    height: 30px; /* 圆形的直径 */
+    background-color: #6AC0AA; /* 圆形的背景颜色 */
+    border-radius: 50%; /* 创建圆形 */
+    box-shadow: 3px 3px 0px #ED9BCD;
+}
+
+.instruction-option{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300; /* 300表示较细的字体 */
+    font-size: 12px;
+    word-wrap: break-word; /* 当单词太长时自动换行 */
+    overflow-wrap: break-word; /* 兼容旧版本的浏览器 */
+    margin-top: 5px;
+    margin-left: 200px;
+    color: #F6F4E7;
+    
+}
+
+.instruction-confirm {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300; /* 300表示较细的字体 */
+    font-size: 12px;
+    word-wrap: break-word; /* 当单词太长时自动换行 */
+    overflow-wrap: break-word; /* 兼容旧版本的浏览器 */
+    margin-top: 5px;
+    text-align: center; /* 文本居中 */
+    color: #6a8ac5;
+}
+
+
+
+.radio-container, .checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%; /* 根据需要调整 */
+    margin: 0 auto; /* 将容器在父元素中居中对齐 */
+}
+
+
+/* Label 样式 */
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 黄色盒子样式 */
+.yellow-box {
+    margin-top: 25px;
+    width: 255px;
+    background: #f6f3e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
+    transition: background-color 0.3s;
+    box-shadow: 4px 4px 0px #99E1DE;
+}
+
+/* 圆角图片样式 */
+.rounded-img {
+    width: 100%; /* 确保图片宽度与容器一致 */
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+/* 白色盒子样式 */
+.white-box {
+    width: 100%; /* 确保白色长方形的宽度等于图片的宽度 */
+    background: #BAE8D7;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: space-between; /* 确保元素两端对齐 */
+}
+
+/* 自定义 Radio 和 Checkbox 样式 */
+.white-box input[type="radio"],
+.white-box input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    background-color: #fff;
+    border: 2px solid #C3E1EA;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin: 0 10px; /* 控制左右间距 */
+}
+
+/* 选中状态的样式 */
+.white-box input[type="radio"]:checked::before,
+.white-box input[type="checkbox"]:checked::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #217e9a;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* 标签文本样式 */
+.label-text {
+    color: black;
+    font-size: 20px;
+    font-family: Coda;
+    font-weight: 400;
+    line-height: 30px;
+    word-wrap: break-word;
+    text-align: right;
+    flex-grow: 1;
+    margin-right: 20px; /* 确保与白色长方形右边的距离为20px */
+}
+
+
+/* 高亮显示选中和聚焦状态 */
+.radio-container input[type="radio"]:focus + .white-box,
+.checkbox-container input[type="checkbox"]:focus + .white-box,
+.radio-container input[type="radio"]:checked + .white-box,
+.checkbox-container input[type="checkbox"]:checked + .white-box {
+    outline: 2px solid #FFD000; /* 聚焦状态高亮 */
+    background-color: #FFD000; /* 选中状态下的背景色填充 */
+    padding: 5px; /* 确保padding值与未选中时一致 */
+}
+
+
+
+.highlight {
+    color: #232E5F; /* 文字颜色 */
+    box-shadow: inset 0 0 0 20px #f6f3e9; /* 向内15px的红色阴影 */
+    border-radius: 50px;
+    background-color: #F6C1CF ;
+    width: 1200px; 
+    margin: 0 auto; 
+    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* 添加过渡效果 */
+    /* 其他样式 */
+}
+
+.unhighlight {
+    background-color: transparent; /* 背景颜色为透明 */
+    box-shadow: inset 0 0 0 20px #f6f3e9; /* 向内15px的阴影 */
+    border-radius: 50px;
+    color: #232E5F;
+    width: 1200px; 
+    margin: 0 auto; 
+    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* 添加过渡效果 */
+}
+
+.highlight-option {
+    background-color: #F481B0 !important;
+    color: #F6F4E7 !important;
+    /* 其他样式 */
+}
+
+
+/* 动画 keyframes */
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(20px);
+    }
+}
+
+#resultSection {
+    line-height: 1.6;
+}
+
+
+
+  
+  .center-button {
+    display: block;               /* 确保按钮单独占据一行 */
+    margin: 0 auto; 
+    width: 600px;
+    height: 109px;
+    background: #0BBB99;
+    box-shadow: 12px 12px 0px #99E1DE;
+    border-radius: 20px;
+    color: #F8EDE4;
+     font-family: 'Coda';
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 35px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    margin-top: 400px;
+  }
+
+    /* 图标样式 */
+.Journey-icon {
+    width: 50px;          /* 图标宽度，根据需要调整 */
+    height: 50px;         /* 图标高度，根据需要调整 */
+    margin-right: 15px;    /* 图标与文字之间的间距 */
+    vertical-align: middle; /* 图标垂直居中对齐 */
+}
+
+  .styled-button {
+
+    width: 350px;
+    height: 109px;
+    background: #0BBB99;
+    box-shadow: 12px 12px 4px #99E1DE;
+    border-radius: 20px;
+    color: #F8EDE4;
+    font-family: 'Coda';
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 35px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    margin-top: 500px;
+    margin-right: 20px;
+  }
+
+  .confirm-button {
+    display: block;               /* 确保按钮单独占据一行 */
+    margin: 0 auto;               /* 水平居中对齐 */
+    width: 400px;
+    height: 50px;
+    background: #5087d9;
+    
+    border-radius: 20px;
+    color: #F8EDE4;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 35px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    margin-top: 35px;
+  }
+
+  .confirmstart-button
+  {
+    display: block;               /* 确保按钮单独占据一行 */
+    position: absolute;
+    width: 450px;
+    height: 109px;
+    background: #0BBB99;
+    box-shadow: 12px 12px 0px #ED9BCD;
+    border-radius: 20px;
+    color: #ffffff;
+     font-family: 'Coda';
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 35px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    margin-top: 550px;
+    margin-left: 800px;
+  }
+
+  /* 图标样式 */
+.button-icon {
+    width: 25px;          /* 图标宽度，根据需要调整 */
+    height: 25px;         /* 图标高度，根据需要调整 */
+    margin-right: 15px;    /* 图标与文字之间的间距 */
+    vertical-align: middle; /* 图标垂直居中对齐 */
+}
+
+
+
+
+/* 用于给loading和上一个内容间隔 */
+.content-wrapper {
+    margin-top: 400px; /* 与上一个内容间隔50px */
+    margin-bottom: 300px;
+    text-align: center;
+}
+
+#ai-section {
+    margin-top: 20px; /* 与loading效果间隔 */
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    display: block;               /* 确保按钮单独占据一行 */
+    margin: 0 auto; 
+    width: 40px;
+    aspect-ratio: 1;
+    background:
+      radial-gradient(farthest-side,#000 90%,#0000) 50%/8px 8px no-repeat,
+      conic-gradient(from -90deg at 15px 15px,#0000 90deg,#ff8fea 0) 0 0/25px 25px;
+    animation: l7 1s infinite;
+  }
+
+  @keyframes l7 {
+    0%   {background-position:50%,0 0}
+    50%  {background-position:50%,25px 0}
+    100% {background-position:50%,25px 25px}
+  }
+
+/* 外部容器，控制显示区域 */
+.scrolling-container {
+    width: 1500px;  /* 容器宽度 */
+    overflow: hidden;  /* 隐藏超出的部分 */
+    white-space: nowrap;  /* 防止文字换行 */
+    box-sizing: border-box;
+    padding: 10px; /* 确保没有 padding */
+    margin: 0; /* 确保没有 margin */
+    position: relative;
+    background-color: #BAE8D7;
+}
+
+/* 滚动的文本 */
+.scrolling-text {
+    display: inline-block;
+    font-size: 24px;
+    color: #F481B0;
+    animation: scroll-left 15s linear infinite;
+}
+
+/* 定义滚动动画 */
+@keyframes scroll-left {
+    from {
+        transform: translateX(100%); /* 从容器右侧开始 */
+    }
+    to {
+        transform: translateX(-100%); /* 滚动到容器左侧 */
+    }
+}
+
+  
+
+
+
+
+
